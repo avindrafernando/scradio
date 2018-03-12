@@ -27,9 +27,4 @@ import { Component } from '@angular/core';
   `]
 })
 export class AppComponent {
-  sidenavOpened = false;
-  reason = 'none';
-  close(txt) {
-    this.reason = txt;
-  }
 }
