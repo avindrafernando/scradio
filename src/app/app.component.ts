@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <mat-sidenav-container>
       <mat-sidenav #sidenav mode="side" opened="true">
-        <a mat-icon-button>
+        <a mat-icon-button routerLink="">
           <mat-icon>home</mat-icon>
         </a>
       </mat-sidenav>
