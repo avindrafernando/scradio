@@ -14,7 +14,6 @@ import { Component } from '@angular/core';
           <span>Radio App</span>
         </mat-toolbar>
         <div class="main-content">
-          <app-home></app-home>
           <router-outlet></router-outlet>
         </div>
       </mat-sidenav-content>
