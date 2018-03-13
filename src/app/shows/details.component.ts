@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ShowsService} from './shows.service';
-
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -28,12 +28,13 @@ export class DetailsComponent implements OnInit {
   episodes;
   description;
   show;
+  id;
 
-  constructor(private showsService: ShowsService) {
-    const id = 1;
-    this.show = showsService.getShow(id);
-    this.episodes = showsService.getEpisodes(id);
-    this.description = showsService.getDescription(id);
+  constructor(private showsService: ShowsService, private route: ActivatedRoute) {
+    this.route.params.subscribe(({id}) => this.id = id);
+    this.show = showsService.getShow(this.id);
+    this.episodes = showsService.getEpisodes(this.id);
+    this.description = showsService.getDescription(this.id);
   }
 
   ngOnInit() {

@@ -43,15 +43,14 @@ export class ShowsService {
     return this.shows;
   }
   getShow(id) {
-    console.log(id);
-    return this.shows.find(s =>  s.id === id);
+    return this.shows.find(s =>  s.id === +id);
   }
 
   getDescription(id) {
     return this.description;
   }
   getEpisodes(id) {
-    return this.episodes.filter(e => e.show === id);
+    return this.episodes.filter(e => e.show === +id);
   }
 
 }
