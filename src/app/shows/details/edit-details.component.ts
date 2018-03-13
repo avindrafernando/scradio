@@ -31,7 +31,6 @@ import {ActivatedRoute} from '@angular/router';
   `]
 })
 export class EditDetailsComponent implements OnInit {
-  details: any = {};
   title;
   description;
   id;

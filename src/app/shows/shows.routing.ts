@@ -2,16 +2,11 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {ListComponent} from './list.component';
 import {DetailsComponent} from './details/details.component';
-import {EditDetailsComponent} from './details/edit-details.component';
-import {ViewDetailsComponent} from './details/view-details.component';
 
 const routes: Routes = [{
   path: '', children: [
     {path: '', component: ListComponent},
-    {path: ':id', component: DetailsComponent, children: [
-      {path: 'edit', component: EditDetailsComponent},
-      {path: 'view', component: ViewDetailsComponent}
-    ]}
+    {path: ':id', component: DetailsComponent}
   ]
 }];
 
