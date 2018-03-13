@@ -1,14 +1,11 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
-
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {MaterialModule} from './material';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {ShowsModule} from './shows';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,9 +15,9 @@ import {ShowsModule} from './shows';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule,
-    ShowsModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

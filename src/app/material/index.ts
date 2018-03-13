@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {
   MatButtonModule,
   MatSidenavModule,
@@ -13,7 +12,6 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -23,7 +21,6 @@ import {
   ],
   declarations: [],
   exports: [
-    BrowserAnimationsModule,
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -32,4 +29,5 @@ import {
     MatListModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {
+}
