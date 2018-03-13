@@ -37,7 +37,7 @@ export class EditDetailsComponent implements OnInit {
 
   constructor(private showsService: ShowsService,
               private route: ActivatedRoute) {
-    this.route.params.subscribe(({id}) => this.id = id);
+    this.route.parent.params.subscribe(({id}) => this.id = id);
     this.title = (showsService.getShow(this.id)).title;
     this.description = showsService.getDescription(this.id);
   }

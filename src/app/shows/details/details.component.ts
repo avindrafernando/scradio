@@ -5,10 +5,10 @@ import {AppAuthService} from '../../auth/auth.service';
   selector: 'app-details',
   template: `
     <mat-toolbar>
-        <span>Details</span>
-      <button *ngIf="auth.isAuthed()" mat-button>Edit</button>
+      <span>Details</span>
+      <button *ngIf="auth.isAuthed()" routerLink="edit" mat-button>Edit</button>
     </mat-toolbar>
-    <app-view-details></app-view-details>
+    <router-outlet></router-outlet>
   `,
   styles: [`
     mat-list {
@@ -18,7 +18,8 @@ import {AppAuthService} from '../../auth/auth.service';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor(public auth: AppAuthService) { }
+  constructor(public auth: AppAuthService) {
+  }
 
   ngOnInit() {
   }
