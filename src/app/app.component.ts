@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AppAuthService} from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { Component } from '@angular/core';
       <mat-sidenav-content>
         <mat-toolbar color="primary">
           <span>Radio App</span>
+          <button mat-button (click)="toggleLogin()">Log {{auth.isAuthed() ? 'Off' : 'In'}}!</button>
         </mat-toolbar>
         <div class="main-content">
           <router-outlet></router-outlet>
@@ -32,4 +34,17 @@ import { Component } from '@angular/core';
   `]
 })
 export class AppComponent {
+  auth;
+  constructor(public authService: AppAuthService) {
+    this.auth = authService;
+  }
+
+  toggleLogin() {
+    console.log(this.auth.isAuthed());
+    if (this.auth.isAuthed()) {
+      this.auth.logout();
+    } else {
+      this.auth.login();
+    }
+  }
 }

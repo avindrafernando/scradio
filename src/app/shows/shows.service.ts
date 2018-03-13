@@ -43,6 +43,7 @@ export class ShowsService {
     return this.shows;
   }
   getShow(id) {
+    console.log(id);
     return this.shows.find(s =>  s.id === +id);
   }
 
@@ -51,6 +52,11 @@ export class ShowsService {
   }
   getEpisodes(id) {
     return this.episodes.filter(e => e.show === +id);
+  }
+
+  save(details) {
+    const show = this.shows.find(s => s.id === +details.id);
+    show.title = details.title;
   }
 
 }

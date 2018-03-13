@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {ShowsService} from './shows.service';
+import { Component, OnInit } from '@angular/core';
+import {ShowsService} from '../shows.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-details',
+  selector: 'app-view-details',
   template: `
     <h1>{{show.title}}</h1>
     <p>{{description}}</p>
@@ -18,19 +18,16 @@ import {ActivatedRoute} from '@angular/router';
       </mat-list-item>
     </mat-list>
   `,
-  styles: [`
-    mat-list {
-      max-width: 600px;
-    }
-  `]
+  styles: []
 })
-export class DetailsComponent implements OnInit {
+export class ViewDetailsComponent implements OnInit {
   episodes;
   description;
   show;
   id;
 
-  constructor(private showsService: ShowsService, private route: ActivatedRoute) {
+  constructor(private showsService: ShowsService,
+              private route: ActivatedRoute) {
     this.route.params.subscribe(({id}) => this.id = id);
     this.show = showsService.getShow(this.id);
     this.episodes = showsService.getEpisodes(this.id);
