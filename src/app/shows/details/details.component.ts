@@ -6,7 +6,7 @@ import {AppAuthService} from '../../auth/auth.service';
   template: `
     <mat-toolbar>
       <span>Details</span>
-      <button *ngIf="!auth.isAuthed()" routerLink="edit" mat-button>Edit</button>
+      <button *ngIf="auth.isAuthed()" routerLink="edit" mat-button>Edit</button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   `,
