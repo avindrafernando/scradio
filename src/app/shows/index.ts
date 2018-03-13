@@ -1,18 +1,20 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
-import {ShowsRoutingModule} from './shows-routing.module';
 import {ListComponent} from './list.component';
 import {DetailsComponent} from './details.component';
-import { MaterialModule } from '../material';
+import {MaterialModule} from '../material';
+import {RouterModule} from '@angular/router';
+import {ShowsService} from './shows.service';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    ShowsRoutingModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule.forChild([])
   ],
-  declarations: [ListComponent, DetailsComponent]
+  declarations: [ListComponent, DetailsComponent],
+  providers: [ShowsService]
 })
 export class ShowsModule {
 }

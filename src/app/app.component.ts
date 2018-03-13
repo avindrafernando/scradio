@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
         <a mat-icon-button routerLink="">
           <mat-icon>home</mat-icon>
         </a>
+        <a mat-icon-button routerLink="shows">
+          <mat-icon>slideshow</mat-icon>
+        </a>
       </mat-sidenav>
       <mat-sidenav-content>
         <mat-toolbar color="primary">
@@ -22,6 +25,9 @@ import { Component } from '@angular/core';
   styles: [`
     .main-content {
       padding: 20px;
+    }
+    a {
+      display: block;
     }
   `]
 })

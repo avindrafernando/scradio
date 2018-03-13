@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { ShowsService } from './shows.service';
+
 
 @Component({
   selector: 'app-list',
   template: `
     <mat-list>
-      <h3 mat-subheader>Folders</h3>
+      <h3 mat-subheader>Shows</h3>
       <mat-list-item *ngFor="let show of shows">
-        <mat-icon mat-list-icon>folder</mat-icon>
+        <a mat-icon-button [routerLink]="show.id">
+          <mat-icon mat-list-icon>details</mat-icon>
+        </a>
         <h4 mat-line>{{show.name}}</h4>
         <p mat-line> {{show.aired | date}} </p>
       </mat-list-item>
@@ -15,17 +19,10 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ListComponent implements OnInit {
-  shows = [{
-    aired: new Date(),
-    name: 'The Not So Real Deal'
-  }, {
-    aired: new Date(),
-    name: 'The Real Deal'
-  }, {
-    aired: new Date(),
-    name: 'The Deal'
-  }];
-  constructor() { }
+  shows;
+  constructor(private showsService: ShowsService) {
+    this.shows = showsService.getShows();
+  }
 
   ngOnInit() {
   }
