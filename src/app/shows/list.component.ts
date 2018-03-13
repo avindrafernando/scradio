@@ -11,7 +11,7 @@ import { ShowsService } from './shows.service';
         <a mat-icon-button [routerLink]="show.id">
           <mat-icon mat-list-icon>details</mat-icon>
         </a>
-        <h4 mat-line>{{show.name}}</h4>
+        <h4 mat-line>{{show.title}}</h4>
         <p mat-line> {{show.aired | date}} </p>
       </mat-list-item>
     </mat-list>

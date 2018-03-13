@@ -4,15 +4,15 @@ import {Injectable} from '@angular/core';
 export class ShowsService {
   private shows = [{
     artist: 'Proco Mode',
-    name: 'The Not So Real Deal',
+    title: 'The Not So Real Deal',
     id: 1
   }, {
     artist: 'PVC Freedom',
-    name: 'The Real Deal',
+    title: 'The Real Deal',
     id: 2
   }, {
     artist: 'Pajamas & Smores',
-    name: 'The Deal',
+    title: 'The Deal',
     id: 3
   }];
   private description = `One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed
@@ -41,6 +41,10 @@ export class ShowsService {
 
   getShows() {
     return this.shows;
+  }
+  getShow(id) {
+    console.log(id);
+    return this.shows.find(s =>  s.id === id);
   }
 
   getDescription(id) {

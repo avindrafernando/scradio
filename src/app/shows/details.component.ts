@@ -5,6 +5,8 @@ import {ShowsService} from './shows.service';
 @Component({
   selector: 'app-details',
   template: `
+    <h1>{{show.title}}</h1>
+    <p>{{description}}</p>
     <mat-list>
       <h3 mat-subheader>Episodes</h3>
       <mat-list-item *ngFor="let episode of episodes">
@@ -25,9 +27,11 @@ import {ShowsService} from './shows.service';
 export class DetailsComponent implements OnInit {
   episodes;
   description;
+  show;
 
   constructor(private showsService: ShowsService) {
     const id = 1;
+    this.show = showsService.getShow(id);
     this.episodes = showsService.getEpisodes(id);
     this.description = showsService.getDescription(id);
   }
