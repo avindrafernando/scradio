@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AppAuthService} from './auth/auth.service';
+import {NavigationStart, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -35,8 +36,11 @@ import {AppAuthService} from './auth/auth.service';
 })
 export class AppComponent {
   auth;
-  constructor(public authService: AppAuthService) {
+  constructor(public authService: AppAuthService, public router: Router) {
     this.auth = authService;
+    this.router.events.subscribe((e: any) => {
+      if (e instanceof NavigationStart) { console.log(e); }
+    });
   }
 
   toggleLogin() {
