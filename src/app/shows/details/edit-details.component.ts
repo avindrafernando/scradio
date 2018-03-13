@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ShowsService} from '../shows.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-details',
@@ -36,7 +36,8 @@ export class EditDetailsComponent implements OnInit {
   id;
 
   constructor(private showsService: ShowsService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
     this.route.parent.params.subscribe(({id}) => this.id = id);
     this.title = (showsService.getShow(this.id)).title;
     this.description = showsService.getDescription(this.id);
@@ -45,9 +46,14 @@ export class EditDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToView() {
+    this.router.navigate(['shows', this.id]);
+  }
+
   cancel() {
     this.title = (this.showsService.getShow(this.id)).title;
     this.description = this.showsService.getDescription(this.id);
+    this.goToView();
   }
 
   save() {
@@ -56,6 +62,7 @@ export class EditDetailsComponent implements OnInit {
       description: this.description,
       id: this.id
     });
+    this.goToView();
   }
 
 }
