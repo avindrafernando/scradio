@@ -5,6 +5,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 # Copy the package.json inside the working directory
 COPY package.json /usr/src/app
+COPY yarn.lock /usr/src/app
 # Install required dependencies
 RUN yarn
 # Copy the client application source files. You can use .dockerignore to exlcude files. Works just as .gitignore does.

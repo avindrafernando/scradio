@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-home',
   template: `
     <p>
-      home works!
+      home works, I work, youork, we all work!
     </p>
   `,
   styles: []
