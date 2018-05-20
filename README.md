@@ -12,6 +12,17 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
+As PWA:
+```
+npm i -g http-server
+ng build --prod
+cd dist
+http-server -p 8000
+```
+To test that it is a PWA, visit the site once, then
+kill the server, then visit the site again. It 
+should still load.
+
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## Running unit tests
