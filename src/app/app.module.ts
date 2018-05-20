@@ -7,6 +7,8 @@ import {MaterialModule} from './material';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthModule} from './auth/auth.module';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {AuthModule} from './auth/auth.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
-    AuthModule.forRoot()
+    AuthModule.forRoot(),
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],
   bootstrap: [AppComponent]
