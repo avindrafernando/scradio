@@ -4,31 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-details',
-  template: `
-
-    <form>
-      <mat-form-field>
-        <input matInput placeholder="Title" name="title" [(ngModel)]="title">
-      </mat-form-field>
-
-      <mat-form-field>
-        <textarea matInput placeholder="Description" name="description" [(ngModel)]="description"></textarea>
-      </mat-form-field>
-      <button md-button color="primary" type="button" (click)="save()">Save!</button>
-      <button md-button color="warn" type="button" (click)="cancel()">Cancel</button>
-    </form>
-  `,
-  styles: [`
-    form {
-      width: 100%;
-    }
-
-    mat-form-field {
-      min-width: 150px;
-      max-width: 500px;
-      width: 100%;
-    }
-  `]
+  templateUrl: './edit-details.component.html',
+  styleUrls: ['./edit-details.component.scss']
 })
 export class EditDetailsComponent implements OnInit {
   title;

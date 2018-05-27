@@ -1,0 +1,5 @@
+<mat-toolbar>
+  <span>Details</span>
+  <button *ngIf="auth.isAuthed()" routerLink="edit" mat-button>Edit</button>
+</mat-toolbar>
+<router-outlet></router-outlet>
