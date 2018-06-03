@@ -43,7 +43,6 @@ export class ShowsService {
     return this.shows;
   }
   getShow(id) {
-    console.log(id);
     return this.shows.find(s =>  s.id === +id);
   }
 
