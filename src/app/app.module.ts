@@ -1,3 +1,4 @@
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
@@ -8,6 +9,8 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {AuthModule} from './auth/auth.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {CheckForUpdateService} from './services/check-for-update.service';
+import {LogUpdateService} from './services/log-update.service';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,14 @@ import { environment } from '../environments/environment';
     NotFoundComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     AuthModule.forRoot(),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
-  providers: [],
+  providers: [CheckForUpdateService, LogUpdateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
