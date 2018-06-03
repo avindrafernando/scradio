@@ -9,6 +9,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthModule} from './auth/auth.module';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
+import {CheckForUpdateService} from './services/check-for-update.service';
+import {LogUpdateService} from './services/log-update.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,9 @@ import {environment} from '../environments/environment';
     AppRoutingModule,
     MaterialModule,
     AuthModule.forRoot(),
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
-  providers: [],
+  providers: [CheckForUpdateService, LogUpdateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
